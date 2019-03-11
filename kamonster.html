@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232323;
+}
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("http://dash.ga.co/assets/firstcourse.jpg");
+}
+.second{
+  background-image: url("http://dash.ga.co/assets/secondcourse.jpg");
+}
+.dessert{
+  background-image: url("http://dash.ga.co/assets/dessertcourse.jpg");
+}
+.price {
+  float: right;
+}
+    ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+ <ul>
+      <li><button onclick=Performance()>Performance</a></li>
+      <li><button onclick=Design()>Design</a></li>
+      <li><button onclick=Models()>Models</a></li>
+    </ul>
+
+<h1>ROLLING MONSTERS</h1>
+<h2>ROLLING ENTERTAINMENT</h2>
+
+<div id="RollingMonsters"> </div>
+
+<script>
+PerformanceImages = [ 
+  'url("https://st.automobilemag.com/uploads/sites/10/2015/09/2013-BMW-M6-Coupe-engine.jpg")',
+  
+  'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx5-hpr1AufBzyYRCQBPlQ1DGEVLq5uv5s5L7C0L9XVGQ1MRB5")',
+  
+  'url("https://blogmedia.dealerfire.com/wp-content/uploads/sites/689/2017/01/maybach-biturbo_o.jpg")',
+ ] 
+DesignImages = [ 
+  'url("http://newcarandprice.com/wp-content/uploads/2015/04/2015-BMW-M6-interior.jpg")',
+  'url("https://di-uploads-pod3.dealerinspire.com/fletcherjonesmercedesbenzchicago/uploads/2018/04/2018-S-SEDAN-GALLERY-012-SET-L-WP.jpg")',
+  'url("https://di-uploads-pod4.dealerinspire.com/fletcherjonesmercedesbenzofhenderson/uploads/2018/06/2018-S-450-Interior-Banner.jpg")',
+  
+  ]
+ModelsImages = [ 
+  'url("https://www.bmw.co.za/content/dam/bmw/common/all-models/m-series/m6-gran-coupe/2015/images-videos/04-1920x1200.jpg.asset.1511564876152.jpg")',
+  'url("https://www.mercedes-benz.com/wp-content/uploads/sites/3/2018/02/01-mercedes-benz-mercedes-maybach-s-class-s-650-3400x1440.jpg")',
+  'url("https://www.mercedes-benz.com/wp-content/uploads/sites/3/2018/02/04-mercedes-benz-mercedes-maybach-s-class-s-650-3400x1440.jpg")',
+  
+
+]  
+
+PerformanceDivs = [ 
+'<div class="item"><p>Performace<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+'<div class="item"><p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+'<div class="item"><p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
+] 
+
+DesignDivs = [ 
+'<div class="item"><p>Design<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+'<div class="item"><p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+'<div class="item"><p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
+]  
+
+
+ModelsDivs = [ 
+'<div class="item"><p>Models<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+'<div class="item"><p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+'<div class="item"><p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
+]   
+
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+  
+function Performance() {
+    	Rolling = document.getElementById("RollingMonsters")
+    	Rolling.innerHTML = ''
+	    Rolling.innerHTML += PerformanceDivs[0]
+    	Rolling.innerHTML += PerformanceDivs[1]
+    	Rolling.innerHTML += PerformanceDivs[2]
+  //alert("ROLLING") 
+    items = document.getElementsByClassName("item")
+    items[0].style.background = PerformanceImages[0]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.background = PerformanceImages[1]
+    items[2].style.background = PerformanceImages[2]
+
+}
+function Design() { 
+  
+  //alert("ROLLING")
+  items = document.getElementsByClassName("item")
+  Rolling = document.getElementById("RollingMonsters")
+    	Rolling.innerHTML = ''
+	    Rolling.innerHTML += DesignDivs[0]
+    	Rolling.innerHTML += DesignDivs[1]
+    	Rolling.innerHTML += DesignDivs[2]
+    items[0].style.background = DesignImages[0]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.background = DesignImages[1]
+    items[2].style.background = DesignImages[2]
+}  
+function Models() { 
+  //alert("ROLLING")
+    items = document.getElementsByClassName("item")
+    Rolling = document.getElementById("RollingMonsters")
+    	Rolling.innerHTML = ''
+	    Rolling.innerHTML += ModelsDivs[0]
+    	Rolling.innerHTML += ModelsDivs[1]
+    	Rolling.innerHTML += ModelsDivs[2]
+    items[0].style.background = ModelsImages[0]
+    items[0].style.backgroundSize = '100% 100%'
+    items[1].style.background = ModelsImages[1]
+    items[1].style.backgroundSize = '100% 100%'
+    items[2].style.background = ModelsImages[2]
+    items[2].style.backgroundSize = '100% 100%'
+}   
+  
+</script>
+
+</body>
+
