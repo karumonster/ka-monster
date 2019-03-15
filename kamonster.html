@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/assets/jquery.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
 <style>
@@ -112,6 +113,7 @@ small {
       <li><button onclick=Performance()>Performance</a></li>
       <li><button onclick=Design()>Design</a></li>
       <li><button onclick=Models()>Models</a></li>
+      <li><button onclick=Location()>Location</a></li>	 
     </ul>
 
 <h1>ROLLING MONSTERS</h1>
@@ -140,25 +142,35 @@ ModelsImages = [
   
 
 ]  
+ LocationImages = [   
+'url("https://www.google.com/maps/vt/data=136sR3-UxmD-d9DFBOVQDap0C2oPkB0KbFY1St8FV3YPjmkUhHKhxMEUB6oxU2UD2AxB8hFdKiiKZMwynQsucKopjo7WrBl-W7rdD3Gj5twvHewQGnTY_9XFYxtb4fgTH6QIrAUZsZK9WRKmQJYF8QR-t5qvebx4VdU3w6PGtY_HDK1QzDiAhTDr0AT_BwYHmEjl63hQbLHsWpgnma4bFFJDM7vfFxCrrHCB7iTHjrJsLJAuh3hujuIwLH5sqJbl04jPeryfOPjMQvVJLoky6wXESPpi6FP-0PHK8Mx-llFbzvV6jj7CoKqrflxRlBiaVqPW3ks-K1e0nyavBPOJ2pfWi9QkIjO35tte-pi2LjWeUvO52C3DZ-6cSvhtuP_Lda2RX7kVogmFA9Y_f64z-6PnFhrUp5d46qxTMk_aRQ8bbzaBHV2timgYQX3EngkAGK6TRi1G3wVSjoHBGszMAaHDbpO1b0vtP_7LJBgMLRu3cqV6S8NRziz7_UfBIHleTnd_VKoupADBrwhUevyIwCdcTbOz5_UPg-hsopUdm-Lm1OhpK1hS6re5vn5z-uPengtlk8qsmMkp3yFCIHxQ7kelr0wNG43iAaUESKDqZWZdYyqjlEveINSgdP5h-NtsPVq-HnX28sH4Rsu14ktqig3xyVpwX5zwe5rmfAR5DTGRQ1GTd7P4xrB-4wdj4vVrxwj7DMmOkS0MNDqiAihwwEMRQCwMV1poGqF1ZHdjjwU0CgmquJRNlBTu6WqvsaDwGCSKiHV1DeC5AKNzZ8Ug0vg28S0huYASyFQn4M15NghIbwXDpIVHtkn0Tsbw8FKP7ycUPqHBN82SikepS66P_oAeMAmcSidzTL2VCRb2qh6BrrpJJ9y3C0JD0MWEs_ksIQu2erOYr0ne7Ijw72NgjKrDygd7LTdo2ybtXeZ7CgTE611c4QIJ2dskbpCP1KZCKBXbgZ0Z8W9UJFPP26CEHdaGdbGUGE4FGehUsYtfORvsIxm8PrDsmoMRI-7YcXb3DFzOEYLTBGUY6pq3Puu-jDtG08lVh3VvRQbz5K7c4SiiwSYJtIwELWIpxPNKite7sBnzAPA166u8kdfrAvi0dXKFGYhAmNd6_3WDsp3obEo3lOg8wRu9uxr63q6e0OUYf04liOkGGh7kscbJjQR2Dy--uDPc_5VyIkuTQxY1rDnFjq4UPjL6QKvcKbJyzzSd9fWJSQ")',
+ 	
+ ]
+  
 
 PerformanceDivs = [ 
-'<div class="item"><p>Performace<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
-'<div class="item"><p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
-'<div class="item"><p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
+'<div class="item"onclick=this.classList.toggle("show-description")<p>Performace<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+'<div class="item"onclick=this.classList.toggle("show-description")<p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+'<div class="item"onclick=this.classList.toggle("show-description")<p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
 ] 
 
 DesignDivs = [ 
-'<div class="item"><p>Design<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
-'<div class="item"><p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
-'<div class="item"><p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
+'<div class="item"onclick=this.classList.toggle("show-description")<p>Design<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+'<div class="item"onclick=this.classList.toggle("show-description")<p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+'<div class="item"onclick=this.classList.toggle("show-description")<p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
 ]  
 
 
 ModelsDivs = [ 
-'<div class="item"><p>Models<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
-'<div class="item"><p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
-'<div class="item"><p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
+'<div class="item"onclick=this.classList.toggle("show-description")<p>Models<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+'<div class="item"onclick=this.classList.toggle("show-description")<p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+'<div class="item"onclick=this.classList.toggle("show-description")<p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
 ]   
+LocationDivs = [
+'<div class="item" onclick=this.classList.toggle("show-description")><p>Dealership<span class="price">$14</span><br /><small>Mustard sierra leone bologi kale chard beet greens black-eyed pea sorrel amaranth garlic tigernut spring onion summer purslane asparagus lentil. </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>DASH BOARD <span class="price">$22</span><br /><small>Tri-tip capicola kielbasa salami brisket chicken rump strip steak drumstick. Meatloaf chuck boudin ribeye pork jowl. Andouille bacon jowl meatloaf pork loin prosciutto bresaola.</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>IN DEPT VIEW<span class="price">$8</span><br /><small>Lollipop tart cotton candy jelly-o carrot cake apple pie cupcake. Jelly-o bear claw ice cream candy canes.</small></p></div>'
+]
 
 
   $('div').on('click', function() {
